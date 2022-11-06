@@ -1,2 +1,2 @@
 # quora-qa-automation
-A starter code template for a Quora Question-Answering Bot.
+This is an object oriented code template is for a bot that will answer questions on Quora.
