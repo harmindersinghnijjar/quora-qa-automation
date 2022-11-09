@@ -1,6 +1,8 @@
 # quora-qa-automation
 This is an object oriented code template for a bot that will eventually answer questions on Quora using the OpenAI API and Selenium.
 
+Note: Change lines 17 and 100 to the proper API key and path to your Google Chrome profile respectively.
+
 ### Language: 
 
 - Python
