@@ -14,7 +14,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class Selenium:
     # Copy your API key from https://beta.openai.com/account/api-keys.
-    openai.api_key = "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"
+    openai.api_key = "YOURAPIKEY"
 
     # Constructor method. 
     def __init__(self, webdriverval):
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     # Add a user data directory as an argument for options.
     # Type in "chrome://version/" into your address bar on Chrome and copy the Profile Path as user data directory.
-    options.add_argument("--user-data-dir=C:\\Users\\Harminder Nijjar\\AppData\\Local\\Google\\Chrome\\User Data")
+    options.add_argument("--user-data-dir=C:\\Users\\YOURUSERNAME\\AppData\\Local\\Google\\Chrome\\User Data")
     options.add_argument("profile-directory=Default")
     # Instansiate Google Chrome with the above options. 
     driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
