@@ -13,10 +13,10 @@ This is an object oriented code template for a bot that will eventually answer q
 
 ### Libraries:
 
+- OpenAI
+- os
 - Selenium
 - webdriver_manager
-- os
-- OpenAI
 
 ### API:
 
@@ -59,12 +59,3 @@ This is an object oriented code template for a bot that will eventually answer q
 
 ### Additional notes:
 
-2022116175638 Update: 
-
-![cmd_Hk3OWiQfwT.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7724c44a-7aa9-4104-8743-06ec305fbccf/cmd_Hk3OWiQfwT.png)
-
-2022116193314 Update:
-
-![cmd_PsW3l7AiGd.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1a498b7-edce-4925-b2e3-9d6ce7ec2763/cmd_PsW3l7AiGd.png)
-
-2022116203456 Update:
