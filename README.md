@@ -59,4 +59,4 @@ This is an object oriented code template for a bot that will eventually answer q
 
 ### Additional notes:
 
-Note: Change lines 17 and 100 of v1.py to the proper API key and path to your Google Chrome profile respectively
+Note: Change lines 17 and 100 of v1.py to the proper API key and path to your Google Chrome profile respectively.
