@@ -45,7 +45,7 @@ A Python program to post an answer from GPT-3 on Quora and select an answer cred
 4. Post the answer into Quora.
 5. Change the answer credentials to your preferred credentials.
 
-### Resource:
+### Resources:
 
 1. YouTube:
 
