@@ -1,5 +1,5 @@
 # quora-qa-automation
-This is an object oriented code template for a bot that will eventually answer questions on Quora using the OpenAI API and Selenium.
+A Python program to post an answer from GPT-3 on Quora and select an answer credential. The program uses the Selenium webdriver to open a Chrome browser and navigate to Quora. The program then extracts the first question listed on Quora and passes it to GPT-3 for a response. The response from GPT-3 is then posted on Quora, and an answer credential is selected. This program uses the OpenAI API to access GPT-3.
 
 ### Language: 
 
