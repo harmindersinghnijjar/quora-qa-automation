@@ -15,7 +15,7 @@ A JavaScript program to use Selenium and GPT-3 to answer questions on Quora. The
 
 - [openai](https://www.npmjs.com/package/openai)
 - [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver)
-- [webdriver_manager] (https://www.npmjs.com/package/webdriver-manager)
+- [webdriver_manager](https://www.npmjs.com/package/webdriver-manager)
 
 ### API:
 
