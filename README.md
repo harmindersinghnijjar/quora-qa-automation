@@ -1,5 +1,5 @@
 # Quora QA Automation
-A JavaScript program to post an answer from GPT-3 on Quora and select an answer credential. The program uses the Selenium webdriver to open a Chrome browser and navigate to Quora. The program then extracts the first question listed on Quora and passes it to GPT-3 for a response. The response from GPT-3 is then posted on Quora. This program uses the OpenAI API to access GPT-3.
+A JavaScript program to use Selenium and GPT-3 to answer questions on Quora. The program uses the Selenium webdriver to open a Chrome browser and navigate to Quora. The program then extracts the first question listed on Quora and passes it to GPT-3 for a response. The response from GPT-3 is then posted on Quora. This program uses the OpenAI API to access GPT-3.
 
 ### Language: 
 
