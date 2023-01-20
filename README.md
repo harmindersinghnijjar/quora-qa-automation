@@ -12,9 +12,13 @@ A JavaScript program to use Selenium and GPT-3 to answer questions on Quora. The
 - [API key](https://beta.openai.com/account/api-keys)
 
 ### Modules:
-
+- child_process 
+- fs  
 - [openai](https://www.npmjs.com/package/openai)
 - [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver)
+- selenium-webdriver/chrome 
+- sendkeys
+- util
 - [webdriver_manager](https://www.npmjs.com/package/webdriver-manager)
 
 ### API:
