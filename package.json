@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "openai": "^3.1.0",
+    "selenium-webdriver": "^4.7.1",
+    "sendkeys": "^1.1.1"
+  }
+}
