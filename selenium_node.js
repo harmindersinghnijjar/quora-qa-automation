@@ -1,28 +1,51 @@
+// TODO - Add comments to code.
+// TODO - Add Mac support.
+// TODO - Add error handling to code.
+// TODO - Add logging to code.
+// TODO - Send answer to Quora using Selenium, not sendkeys.
+// TODO - Implement UI for user to enter pc username for Chrome profile.
+
 // JavaScript source code
-const { Configuration, OpenAIApi } = require("openai");
+// Import required libraries.
+const sendkeys = require('sendkeys')
+const {
+    Configuration,
+    OpenAIApi
+} = require("openai");
+const {
+    exec
+} = require('child_process');
+const {
+    Builder,
+    By,
+    Key,
+    until
+} = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const fs = require('fs');
+
+
+// Create a new OpenAI API configuration.
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY,
 });
 
-console.log(apiKey)
+// Uncomment the below line to log the API key.
+//console.log(configuration.apiKey)
 
+// Create a new OpenAI API instance.
 const openai = new OpenAIApi(configuration);
-  
+
+//TODO - Add method to check if OS is Windows or Mac.
+// TODO - Add Mac support.
 // Close all open Chrome instances before running the script.
 // Windows
-const { exec } = require('child_process');
-
 exec('taskkill /f /im chrome.exe', (err, stdout, stderr) => {
-    if (err) { console.log(err); }
+    if (err) {
+        console.log(err);
+    }
     console.log(stdout);
 });
-
-
-// Import required libraries.
-//const openai = require ("openai"); // npm i openai@3.1.0
-const {Builder, By, Key, until} = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const fs = require('fs');   
 
 // Define Chrome options.
 let options = new chrome.Options();
@@ -35,34 +58,41 @@ let driver = new Builder().forBrowser('chrome').setChromeOptions(options).build(
 // Method to post answer received from GPT-3 on Quora and selecting a personalized answer credential.
 async function answer_quora_question(answer) {
     // Click on botton to open answer pop-up.
-    await driver.findElement(By.xpath('//*[@id="mainContent"]/div/div/div[1]/div/div[2]/div[1]/div/div/div/div/div/div/div/div[3]/div/div/div/div[1]/button[1]\
-        /div/div[2]/div')).click();
+    await driver.findElement(By.xpath('/html/body/div[2]/div/div[2]/div/div[3]/div/div/div[2]/div/div/div[1]/div/div[2]/div[1]/div/div/div/div/div/div/div/div[3]/div/div/div[1]/button[1]')).click();
+    // Pause for 5 seconds.
+    await driver.sleep(5000);
+    // Click on text box to enter answer.
+    // TODO - Ensure driver is clicking on the correct text box.
+    // TODO - Send answer to Quora using Selenium, not sendkeys.
+    await driver.findElement(By.className('doc empty')).click();
+    await driver.findElement(By.className('doc empty')).clear();
     // Paste answer into text box.
-    await driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div[1]/div[2]/div/div/div/div/div[1]/div')).sendKeys(answer);
+    await sendkeys(answer);
+
     // Pause for 10 seconds.
     await driver.sleep(10000);
     // Post answer.
-    await driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div[2]/button')).click();
+    await driver.findElement(By.xpath('/html/body/div[2]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[2]/div/div[2]/button')).click();
     // Pause for 2 seconds.
     await driver.sleep(2000);
+    // TODO - Make this more robust.
     // Select "I help people with technology and enjoy learning about ML" as your answer credential. 
-    await driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div[1]/div[3]/div[1]/div/label\
-        /div/div[2]/div/span/span[2]')).click();
+    await driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div[1]/div[3]/div[1]/div/label/div/div[2]/div/span/span[2]')).click();
 }
 
 // Method to extract first question listed on www.quora.com/answers and return it as a string.
 async function extract_question() {
-    let question = await driver.findElement(By.xpath('//*[@id="mainContent"]/div/div/div[1]/div/div[2]/div[1]/div/div/div/div/div/div/div/div[1]/div[1]/span/span/a/div/div\
-        /div/div/span/span')).getText();
-        console.log(question);
+    let question = await driver.findElement(By.xpath('//*[@id="mainContent"]/div/div/div[1]/div/div[2]/div[1]/div/div/div/div/div/div/div/div[1]/div[1]/span/span/a/div/div/div/div/span/span')).getText();
+    // Logging the question to the console causes the script to crash whenever the question contains a special character.
+    //console.log(question);
     return question;
 }
 
 // Method to ask GPT-3 the question extracted from Quora and return the respone text as a string.
-async function gpt3_completion(prompt, engine='text-davinci-003', temp=0.7, top_p=1.0, tokens=400, freq_pen=0.0, pres_pen=0.0, stop=['JAX:', 'USER:']) {
+async function gpt3_completion(prompt, model = 'text-davinci-003', temp = 0.7, top_p = 1.0, tokens = 400, freq_pen = 0.0, pres_pen = 0.0, stop = ['JAX:', 'USER:']) {
     prompt = prompt.replace(/[^\x00-\x7F]/g, "");
     const response = await openai.createCompletion({
-        engine: engine,
+        model: model,
         prompt: prompt,
         temperature: temp,
         max_tokens: tokens,
@@ -70,21 +100,18 @@ async function gpt3_completion(prompt, engine='text-davinci-003', temp=0.7, top_
         frequency_penalty: freq_pen,
         presence_penalty: pres_pen,
         stop: stop
-});
-    let text = response['choices'][0]['text'].trim();
+    });
+    let text = response.data.choices[0].text;
+    // Remove spaces from the beginning of the string.
+    text = text.replace(/^\s+/, '');
     return text;
+
 }
 
 // Method to open Quora in a Chrome instance. 
 async function launch_test_case() {
     // Open a webpage.
     await driver.get("https://www.quora.com/answer");
-}
-
-// Method to open a file and read the contents. 
-async function open_file(filepath) {
-    let data = fs.readFileSync(filepath, 'utf8');
-    return data;
 }
 
 // Method to close the Chrome browser.
@@ -102,18 +129,28 @@ async function setup() {
 
 // Main method in JavaScript.
 async function main() {
+    // Setup Chrome instance.
     await setup();
+    // Open Quora.
     await launch_test_case();
+    // Pause for 2 seconds.
     await driver.sleep(2000);
+    // Extract question from Quora.
     let question = await extract_question();
+    // Ask GPT-3 the question.
     let answer = await gpt3_completion(question);
+    // Post answer on Quora.
     await answer_quora_question(answer);
+    // Close Chrome instance.
     //await quit_application();
 }
 
 // Call main method in a loop.
 (async function loop() {
+    // TODO - Add a break condition to the loop.
+    // TODO - Add a delay between each iteration of the loop.
     while (true) {
+        // Call main method.
         await main();
     }
 })();
