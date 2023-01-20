@@ -5,25 +5,20 @@
 // TODO - Send answer to Quora using Selenium, not sendkeys.
 // TODO - Implement UI for user to enter pc username for Chrome profile.
 
-// JavaScript source code
-// Import required libraries.
-const sendkeys = require('sendkeys')
-const {
-    Configuration,
-    OpenAIApi
-} = require("openai");
-const {
-    exec
-} = require('child_process');
-const {
-    Builder,
-    By,
-    Key,
-    until
-} = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const fs = require('fs');
 
+// DONE - write function requireAll() to mention required libraries in a neat and understandable way. 
+const requireAll = (modules) => {
+    const requiredModules = {};
+    modules.forEach(module => {
+        requiredModules[module] = require(module);
+    });
+    return requiredModules;
+}
+
+
+const requiredModules = requireAll(['child_process', 'openai', 'selenium-webdriver', 'selenium-webdriver/chrome', 'sendkeys']);
+
+const { exec, Configuration, OpenAIApi, Builder, By, Key, until, chrome, SendKeys, fs } = requiredModules;
 
 // Create a new OpenAI API configuration.
 const configuration = new Configuration({
