@@ -1,16 +1,32 @@
 // JavaScript source code
-// Required libraries
-const openai = require('openai');
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+console.log(apiKey)
+
+const openai = new OpenAIApi(configuration);
+  
+// Close all open Chrome instances before running the script.
+// Windows
+const { exec } = require('child_process');
+
+exec('taskkill /f /im chrome.exe', (err, stdout, stderr) => {
+    if (err) { console.log(err); }
+    console.log(stdout);
+});
+
+
+// Import required libraries.
+//const openai = require ("openai"); // npm i openai@3.1.0
 const {Builder, By, Key, until} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-const fs = require('fs');
-
-// Copy your API key from https://beta.openai.com/account/api-keys.
-openai.api_key = "YOURAPIKEY";
+const fs = require('fs');   
 
 // Define Chrome options.
 let options = new chrome.Options();
-options.addArguments("--user-data-dir=C:\\Users\\YOURUSERNAME\\AppData\\Local\\Google\\Chrome\\User Data");
+options.addArguments("--user-data-dir=C:\\Users\\harmi\\AppData\\Local\\Google\\Chrome\\User Data");
 options.addArguments("profile-directory=Default");
 
 // Instansiate Google Chrome with the above options. 
@@ -38,22 +54,23 @@ async function answer_quora_question(answer) {
 async function extract_question() {
     let question = await driver.findElement(By.xpath('//*[@id="mainContent"]/div/div/div[1]/div/div[2]/div[1]/div/div/div/div/div/div/div/div[1]/div[1]/span/span/a/div/div\
         /div/div/span/span')).getText();
+        console.log(question);
     return question;
 }
 
 // Method to ask GPT-3 the question extracted from Quora and return the respone text as a string.
-async function gpt3_completion(prompt, engine='text-davinci-002', temp=0.7, top_p=1.0, tokens=400, freq_pen=0.0, pres_pen=0.0, stop=['JAX:', 'USER:']) {
+async function gpt3_completion(prompt, engine='text-davinci-003', temp=0.7, top_p=1.0, tokens=400, freq_pen=0.0, pres_pen=0.0, stop=['JAX:', 'USER:']) {
     prompt = prompt.replace(/[^\x00-\x7F]/g, "");
-    let response = await openai.Completion.create(
-        engine=engine,
-        prompt=prompt,
-        temperature=temp,
-        max_tokens=tokens,
-        top_p=top_p,
-        frequency_penalty=freq_pen,
-        presence_penalty=pres_pen,
-        stop=stop
-    );
+    const response = await openai.createCompletion({
+        engine: engine,
+        prompt: prompt,
+        temperature: temp,
+        max_tokens: tokens,
+        top_p: top_p,
+        frequency_penalty: freq_pen,
+        presence_penalty: pres_pen,
+        stop: stop
+});
     let text = response['choices'][0]['text'].trim();
     return text;
 }
@@ -80,8 +97,7 @@ async function setup() {
     // Maximize Chrome window.
     await driver.manage().window().maximize();
     // Have the driver wait for 10 seconds. 
-    await driver.manage().timeouts().implicitlyWait(10000);
-    await driver.manage().timeouts().pageLoadTimeout(20000);
+    await driver.sleep(10000);
 }
 
 // Main method in JavaScript.
