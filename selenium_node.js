@@ -5,8 +5,7 @@
 // TODO - Send answer to Quora using Selenium, not sendkeys.
 // TODO - Implement UI for user to enter pc username for Chrome profile.
 
-
-// DONE - write function requireAll() to mention required libraries in a neat and understandable way. 
+// DONE - write function requireAll() to mention required libraries in a clean and maintainable way. 
 // Method to require all libraries in one line.
 const requireAll = (modules) => {
     const requiredModules = {};
@@ -16,7 +15,7 @@ const requireAll = (modules) => {
     return requiredModules;
 }
 
-// Import required libraries.
+// Required libraries.
 const requiredModules = requireAll(['child_process', 'fs', 'openai', 'selenium-webdriver', 'selenium-webdriver/chrome', 'sendkeys', 'util']);
 
 console.log('Importing required libraries...');
