@@ -59,6 +59,10 @@ A JavaScript program to use Selenium and GPT-3 to answer questions on Quora. The
 
 - [Best Practices for API Key Safety](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety)
 
+2. YouTube
+
+- [Build a Desktop App with Electron... But Should You?](https://www.youtube.com/watch?v=3yqDxhR2XxE)
+
 ### Additional notes:
 
 
