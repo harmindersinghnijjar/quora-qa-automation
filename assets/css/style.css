@@ -301,7 +301,8 @@ main aside .updates {
   border-radius: var(--border-radius-1);
   text-align: center;
   padding: var(--card-padding);
-  margin-top: 50%;
+  bottom: 0;
+  position: absolute;
 }
 
 main aside .updates span {
@@ -333,6 +334,5 @@ main aside .updates a:hover {
   box-shadow: 0 1rem 2rem var(--color-primary-light);
   color: #fff;
 }
-
 
 
