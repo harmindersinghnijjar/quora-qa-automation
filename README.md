@@ -12,15 +12,15 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 ### Frameworks:
 
-Selenium - a popular automation testing framework that provides a suite of tools for web browser automation. It allows for programmatically controlling a web browser and automating user actions, such as clicking buttons, filling forms, and extracting data from web pages.
+[Selenium](https://www.selenium.dev/) - a popular automation testing framework that provides a suite of tools for web browser automation. It allows for programmatically controlling a web browser and automating user actions, such as clicking buttons, filling forms, and extracting data from web pages.
 
-OpenAI API - a powerful artificial intelligence API that provides access to GPT-3, a language model capable of generating human-like text. It can be used for a variety of natural language processing tasks, such as language translation, summarization, and conversation generation.
+[OpenAI API](https://openai.com/api/) - a powerful artificial intelligence API that provides access to GPT-3, a language model capable of generating human-like text. It can be used for a variety of natural language processing tasks, such as language translation, summarization, and conversation generation.
 
-Flask - a web application framework for Python that allows for building web applications and RESTful APIs. It provides a set of tools for handling HTTP requests and responses, rendering HTML templates, and serving static files.
+[Electron](https://www.electronjs.org/)- a framework for building desktop applications using web technologies such as HTML, CSS, and JavaScript. It provides a way to create cross-platform applications with a native-like look and feel.
 
 ### Language: 
 
-- JavaScript, Python
+- [JavaScript](https://github.com/topics/javascript), [Python](https://github.com/python)
 
 ### Flow diagrams:
 
@@ -32,6 +32,7 @@ Flask - a web application framework for Python that allows for building web appl
 - child_process 
 - fs  
 - [openai](https://www.npmjs.com/package/openai)
+- os
 - [selenium-webdriver](https://www.npmjs.com/package/selenium-webdriver)
 - sendkeys
 - util
