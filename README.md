@@ -20,7 +20,7 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 ### Language: 
 
-- [JavaScript](https://github.com/topics/javascript), [Python](https://github.com/python)
+- [Python](https://www.python.org/)
 
 ### Flow diagrams:
 
