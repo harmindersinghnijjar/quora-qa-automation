@@ -16,7 +16,7 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 [OpenAI API](https://openai.com/api/) - a powerful artificial intelligence API that provides access to GPT-3, a language model capable of generating human-like text. It can be used for a variety of natural language processing tasks, such as language translation, summarization, and conversation generation.
 
-[Electron](https://www.electronjs.org/)- a framework for building desktop applications using web technologies such as HTML, CSS, and JavaScript. It provides a way to create cross-platform applications with a native-like look and feel.
+[Python Eel](https://github.com/python-eel/Eel)- a framework for building desktop applications using web technologies such as Python (backend) and HTML, CSS, and JavaScript (frontend). It provides a way to create cross-platform applications with a native-like look and feel.
 
 ### Language: 
 
@@ -30,6 +30,7 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 ### Modules:
 - child_process 
+- [eel] (https://github.com/python-eel/Eel)
 - fs  
 - [openai](https://www.npmjs.com/package/openai)
 - os
