@@ -27,6 +27,7 @@ This program is ideal for anyone looking to automate their Quora activities, par
 - [API key](https://beta.openai.com/account/api-keys)
 
 ### Modules:
+
 - child_process 
 - [eel] (https://github.com/python-eel/Eel)
 - fs  
@@ -70,6 +71,7 @@ This program is ideal for anyone looking to automate their Quora activities, par
 11. Create a setup method to maximize the Chrome window and have the driver wait for 10 seconds.
 12. Create a main method to call the above methods.
 13. Call the main method in a loop.
+
 ### Resources:
 
 1. OpenAI
