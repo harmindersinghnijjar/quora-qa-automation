@@ -16,8 +16,6 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 [OpenAI API](https://openai.com/api/) - a powerful artificial intelligence API that provides access to GPT-3, a language model capable of generating human-like text. It can be used for a variety of natural language processing tasks, such as language translation, summarization, and conversation generation.
 
-Tkinter- A framework for developing GUI applications in Python. It provides a simple and intuitive interface for creating windows, dialogs, buttons, menus, and other user interfaces elements. It is cross-platform and works on Windows, Linux, and Mac OS X.
-
 ### Language: 
 
 - [Python](https://www.python.org/)
