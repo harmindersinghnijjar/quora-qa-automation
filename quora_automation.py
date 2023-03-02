@@ -174,7 +174,6 @@ if __name__ == '__main__':
                 options = Options()
                 options.add_experimental_option("excludeSwitches", ["enable-logging"])
                 # Add a user data directory as an argument for options.
-                # Type in "chrome://version/" into your address bar on Chrome and copy the Profile Path as user data directory.
                 options.add_argument(f"--user-data-dir=C:\\Users\\{user}\\AppData\\Local\\Google\\Chrome\\User Data")
                 options.add_argument("profile-directory=Default")
                 # Instansiate Google Chrome with the above options. 
