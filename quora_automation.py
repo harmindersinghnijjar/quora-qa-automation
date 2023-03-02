@@ -159,7 +159,7 @@ class Selenium(webdriver.Chrome):
         self.set_page_load_timeout(20)
 
 
-    # Main method in Python.
+ 
 if __name__ == '__main__':
     # Check if the OpenAI API key is set in the environment using the set_openai_api_key module.
     # If it is, then run the script.
