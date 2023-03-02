@@ -5,7 +5,6 @@
 # Usage: python quora_automation.py
 
 # Import modules.
-from requests_html import HTMLSession
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
