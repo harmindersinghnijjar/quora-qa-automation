@@ -62,7 +62,7 @@ if __name__ == '__main__':
     # Check if the environment variable is already set.
     if "OPENAI_API_KEY" in os.environ:
         print("Your OpenAI API key is already set in the environment.")
-        print("You can now run the answering.py script.")
+        print("You can now run the quora_automation.py script.")
         exit()
     # If the environment variable is not set, ask the user how they want to enter their OpenAI API key.
     else:
@@ -72,7 +72,7 @@ if __name__ == '__main__':
         print("Your OpenAI API key is: %s" % api_key)
         set_openai_api_key(api_key)
         print("Your OpenAI API key has been set in the environment.")
-        print("You can now run the answering.py script.")
+        print("You can now run the quora_automation.py script.")
 
 
  
