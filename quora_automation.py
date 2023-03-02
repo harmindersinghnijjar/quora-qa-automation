@@ -179,7 +179,6 @@ if __name__ == '__main__':
                 # Instansiate Google Chrome with the above options. 
                 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
                 selenium_client = Selenium
-                
                 selenium_client.setup(driver)
                 # Pause for 2 seconds.
                 time.sleep(2)
