@@ -29,7 +29,7 @@ This program is ideal for anyone looking to automate their Quora activities, par
 ### Modules:
 
 - child_process 
-- [eel] (https://github.com/python-eel/Eel)
+- [eel](https://github.com/python-eel/Eel)
 - fs  
 - [openai](https://www.npmjs.com/package/openai)
 - os
