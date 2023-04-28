@@ -1,14 +1,25 @@
 # Description: This script is used to set the OpenAI API key in the environment.
 # Author: harmindesinghnijjar
 # Date: 2023-02-20
+# Updated: 2023-04-28
 # Version: 1.0.0
 # Usage: python set_openai_api_key.py
 
 
-# Import modules.
+# Import required libraries.
 from os import environ
 import os
+import sys
 
+# Define function to check if OpenAI API key exists
+def check_openai_api_key():
+    openai_api_key = os.environ.get('OPENAI_API_KEY', None)
+    if openai_api_key is None:
+        print('ERROR: OPENAI_API_KEY is not set in environment variables')
+        get_openai_api_key()
+    else:
+        print('SUCCESS: OPENAI_API_KEY is set in environment variables')
+        return openai_api_key
 
 # Define functions to get OpenAI API key from file.
 def get_openai_api_key_from_file(filepath):
@@ -56,6 +67,12 @@ def get_openai_api_key():
         # If the user enters anything else, ask them to try again. 
         else:
             print("Invalid choice. Please try again.")
+
+# Define function to display the OpenAI API key in environmental variables.
+def open_env():
+    print("Your OpenAI API key is: %s" % os.environ['OPENAI_API_KEY'])
+    
+
 
 # Main program of the script.
 if __name__ == '__main__':
