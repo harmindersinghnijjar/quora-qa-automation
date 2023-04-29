@@ -48,10 +48,16 @@ class Selenium(webdriver.Chrome):
             
             # Paste answer into text box.
             answer_box = self.find_element(By.CSS_SELECTOR, '#root > div > div:nth-child(2) > div > div > div > div > div.q-flex.ModalContainerInternal___StyledFlex-s8es4q-2.gXhqYs.modal_content_inner.qu-flexDirection--column.qu-bg--white.qu-overflowY--auto.qu-borderAll.qu-alignSelf--center > div > div.q-flex.qu-flexDirection--column.qu-overflowY--auto > div.q-relative.qu-display--flex.qu-flexDirection--column > div > div.q-box > div:nth-child(2) > div > div > div > div > div.q-box > div')
-            answer_box.send_keys(answer)
+            if not answer_box:
+                raise ValueError("Could not find answer box element on the page.")
+            else:
+                answer_box.send_keys(answer)
+                print(answer)
         except Exception as e:
             print("Error while pasting answer into text box: ", e)
-            return False
+            print("Unable to answer question, skipping to next question.")
+            # Go to next question by calling the answer_quora_question method again.
+            self.answer_quora_question(answer)
         
         # Pause for 10 seconds.
         time.sleep(10)
@@ -176,6 +182,8 @@ if __name__ == '__main__':
                 # Add a user data directory as an argument for options.
                 options.add_argument(f"--user-data-dir=C:\\Users\\{user}\\AppData\\Local\\Google\\Chrome\\User Data")
                 options.add_argument("profile-directory=Default")
+                # In order to prevent the "Timed out receiving message from renderer: 20.000" error, add the following options.
+                options.add_experimental_option('extensionLoadTimeout', 60000)
                 # Instansiate Google Chrome with the above options. 
                 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
                 selenium_client = Selenium
