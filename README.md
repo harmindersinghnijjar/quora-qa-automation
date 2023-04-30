@@ -87,4 +87,16 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 ### Additional notes:
 
+If you encounter the error "timeout: Timed out receiving message from renderer" while pasting an answer into a text box, it may be due to the page load timeout being set too low. In such cases, you can try increasing the page load timeout using the set_page_load_timeout() method.
 
+For example, if you're using Selenium in Python, you can set the page load timeout as follows:
+
+```
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+driver.set_page_load_timeout(X) # Increase the timeout to X seconds
+```
+In the above code, the set_page_load_timeout() method sets the maximum time to wait for a page to load before throwing an error. By increasing this timeout value, you may be able to avoid the "timeout: Timed out receiving message from renderer" error.
+
+Remember to adjust the timeout value based on your specific needs and internet speed. A longer timeout may lead to slower test execution, so it's important to find the right balance.
