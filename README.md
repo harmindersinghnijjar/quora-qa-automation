@@ -87,9 +87,11 @@ This program is ideal for anyone looking to automate their Quora activities, par
 
 ### Additional notes:
 
-If you encounter the error "timeout: Timed out receiving message from renderer" while pasting an answer into a text box, it may be due to the page load timeout being set too low. In such cases, you can try increasing the page load timeout using the set_page_load_timeout() method.
+### Potential errors:
 
-For example, if you're using Selenium in Python, you can set the page load timeout as follows:
+If you encounter the error message "timeout: Timed out receiving message from renderer" while attempting to paste an answer into a text box, it is possible that the page load timeout has been set too low. In such instances, it is advisable to increase the page load timeout using the set_page_load_timeout() method.
+
+For example, if you are using the Selenium library in Python, you can increase the page load timeout by executing the following code:
 
 ```
 from selenium import webdriver
@@ -97,6 +99,7 @@ from selenium import webdriver
 driver = webdriver.Chrome()
 driver.set_page_load_timeout(X) # Increase the timeout to X seconds
 ```
-In the above code, the set_page_load_timeout() method sets the maximum time to wait for a page to load before throwing an error. By increasing this timeout value, you may be able to avoid the "timeout: Timed out receiving message from renderer" error.
 
-Remember to adjust the timeout value based on your specific needs and internet speed. A longer timeout may lead to slower test execution, so it's important to find the right balance.
+In the code above, the set_page_load_timeout() method is responsible for specifying the maximum time the browser should wait for a page to load before throwing an error. By increasing this timeout value, you may be able to circumvent the "timeout: Timed out receiving message from renderer" error.
+
+It is important to remember to adjust the timeout value based on your specific needs and internet speed. A lengthier timeout may result in slower test execution, so finding the appropriate balance is crucial.
