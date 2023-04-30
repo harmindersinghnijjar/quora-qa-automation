@@ -161,8 +161,8 @@ class Selenium(webdriver.Chrome):
         # Set implicit wait time to 10 seconds.
         self.implicitly_wait(10)
         
-        # Set page load timeout to 20 seconds.
-        self.set_page_load_timeout(20)
+        # Set page load timeout to 50 seconds.
+        self.set_page_load_timeout(50)
 
 
  
