@@ -10,6 +10,9 @@ One key advantage of this program is its flexibility in allowing users to specif
 
 This program is ideal for anyone looking to automate their Quora activities, particularly those who frequently respond to questions on the platform. By leveraging GPT-3's advanced natural language processing capabilities, the program can generate high-quality responses to questions, saving users significant time and effort.
 
+### Customization
+This program can be customized to your personal/organizational needs. For more information, please contact me via [LinkedIn](https://www.linkedin.com/in/harmindersinghnijjar/) or email at harmindernijjar1996@gmail.com
+
 ### Frameworks:
 
 [Selenium](https://www.selenium.dev/) - a popular automation testing framework that provides a suite of tools for web browser automation. It allows for programmatically controlling a web browser and automating user actions, such as clicking buttons, filling forms, and extracting data from web pages.
